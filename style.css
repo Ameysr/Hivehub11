@@ -1,0 +1,854 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body , html{
+    height: 100vh;
+    width: 100vw;
+}
+
+body{
+    margin-top: 56px;
+    background-color: rgb(14, 17, 19); /* Maintain background color */
+}
+
+
+/* Font Style */
+.header, .button button, .logo, .first, .topics, .card, pre, span {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* hamburger menu. */
+.sidebaricon {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    font-size: 24px; 
+    cursor: pointer; 
+    color: white;
+}
+@media (max-width: 1000px){
+    .sidebar{
+        display: none;
+    }
+    .box {
+        display: none; /* Hide the box inside the logo */
+    }
+    .sidebaricon{
+        display: contents;
+    }
+    .sidebaricon {
+        display: block; /* Ensure the icon is visible */
+        position: absolute; /* Position it relative to the header */
+        top: 10px; /* Distance from the top */
+        left: 10px; /* Distance from the left */
+        font-size: 24px; /* Adjust the size of the icon */
+        cursor: pointer; /* Show a clickable pointer */
+        color: white; /* Icon color */
+    }
+
+    .sidebaricon pre {
+        margin: 0; /* Remove any extra margin around the icon */
+    }
+
+}
+
+@media (max-width: 700px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        position: relative; /* Ensures child elements can be absolutely positioned */
+    }
+
+    .sidebaricon {
+        display: block; /* Ensure the icon is visible */
+        position: absolute; /* Position it relative to the header */
+        top: 10px; /* Distance from the top */
+        left: 10px; /* Distance from the left */
+        font-size: 24px; /* Adjust the size of the icon */
+        cursor: pointer; /* Show a clickable pointer */
+        color: white; /* Icon color */
+    }
+
+    .sidebaricon pre {
+        margin: 0; /* Remove any extra margin around the icon */
+    }
+
+    .search {
+        margin: 10px 0;
+        height: 2rem; /* Add spacing for responsiveness */
+    }
+
+    .search input {
+        width: 90%;
+        height: 2rem; /* Adjust the search bar width for smaller screens */
+    }
+
+    .button1 button {
+        width: 100%; /* Stretch the button */
+        max-width: 200px;
+        height: 2rem; 
+         /* Limit maximum width */
+    }
+
+    .communities {
+        display: none; /* Hide communities block */
+    }
+
+    .sidebar {
+        display: none; /* Hide the sidebar */
+    }
+
+    .box {
+        display: none; /* Hide the box inside the logo */
+    }
+
+    .hottopics {
+        margin-top: 150px; /* Adjust main content spacing */
+    }
+
+    .main-containt {
+        align-items: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-containt , .post{
+        max-width: 90%; /* Reduce width to 90% of the screen */
+    }
+}
+
+@media (max-width: 768px) {
+    .main-containt , .post{
+        max-width: 95%; /* Reduce further for tablet screens */
+    }
+}
+
+/* Adjust for mobile screens */
+@media (max-width: 480px) {
+    .main-containt , .post {
+        max-width: 98%; /* Almost full width */
+    }
+}
+
+/* Header section */
+.header {
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+    background-color: rgb(14, 17, 19);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    flex-wrap: nowrap;
+}
+
+
+.box {
+    height: 25px;
+    width: 25px;
+    background-color: orangered;
+    border-radius: 50%;
+    margin-top: 12px;
+    margin-right: 3px;
+}
+
+.logo {
+    display: flex;
+    color: rgb(219, 228, 233);
+    padding-left: 1rem;
+}
+
+.logo img {
+    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    position: relative;
+}
+
+.search:hover{
+    transform: scale(1.015); 
+    cursor: pointer;
+}  
+
+.search input {
+    background-color: rgb(219, 228, 233);
+    width: 35rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: none;
+    padding-left: 1.5rem; /* Add padding to create space for the icon */
+}
+
+
+.button1 {
+    display: flex;
+    margin-top: 5px;
+    margin-right: 2rem;
+}
+
+.button1 button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    height: 2rem;
+    width: 3.7rem;
+    font-weight: 600;
+    color: rgb(219, 228, 233);
+    background-color: rgb(217, 57, 0);
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+}
+
+.button1 pre {
+    margin-bottom: 3px;
+}
+
+.button1:hover{
+    transform: scale(1.015); 
+    cursor: pointer;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .header {
+        padding: 10px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .search input {
+        width: 25rem;
+    }
+
+    .button1 button {
+        width: 3rem; 
+    }
+
+    .logo {
+        justify-content: center;
+        margin-bottom: 10px; 
+    }
+
+    .box {
+        margin-left: 0;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 600px) {
+    .header {
+        padding: 8px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search input {
+        width: 20rem; /* Smaller search box */
+        height: 2.5rem;
+    }
+
+    .button1 button {
+        width: 3rem; /* Adjust button width */
+        height: 2.5rem;
+    }
+
+    .logo {
+        justify-content: center;
+        margin-bottom: 10px; /* Space for better alignment */
+    }
+
+    .box {
+        margin-top: 5px;
+    }
+
+    .button1 {
+        margin-top: 10px; /* Spacing for mobile view */
+    }
+}
+
+
+/* mian code starts */
+
+/* all grid alignments */
+.gridcontianer {
+    display: grid;
+    grid-template-columns: 0.85fr 2.5fr 1fr; /* Adjust the column sizes */
+    grid-template-rows: auto auto auto; /* Allow rows to dynamically adjust height */
+    width: 100vw;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.header { 
+    grid-area: 1 / 1 / 2 / 4;
+}
+
+.sidebar { 
+    grid-area: 2 / 1 / 9 / 2; 
+    position: sticky; /* Keeps the sidebar sticky */
+    background-color: rgb(14, 17, 19);
+    top: 0;
+    align-self: start;
+}
+
+.main-containt { 
+    grid-area: 3 / 2 / 9 / 3; 
+    min-height: 100vh; 
+}
+
+.communities { 
+    grid-area: 3 / 3 / 9 / 4; 
+    height: calc(100vh);
+    position: sticky; /* Keeps the community sticky */
+    top: 0; 
+    background-color: rgb(14, 17, 19);
+}
+
+
+.hottopics {
+    grid-area: 2 / 2 / 3 / 4;
+    background-color: rgb(14, 17, 19);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: none;
+    border-top: none;
+    height: 260px; 
+    display: flex;
+    flex-direction: column; 
+}
+
+/* side bar containt */
+.sidebar {
+    grid-area: 2 / 1 / 9 / 2;
+    position: sticky; /* Keeps the sidebar in place while scrolling */
+    top: 0; 
+    height: 100vh; 
+    background-color: rgb(14, 17, 19); 
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-top: none; 
+    border-bottom: none;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar {
+    width: 2px; 
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: transparent; /* Invisible by default */
+}
+
+/* Show scrollbar on hover */
+.sidebar:hover::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.sidebar:hover::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        135deg,
+        #555 25%,
+        #666 25%,
+        #666 50%,
+        #555 50%,
+        #555 75%,
+        #666 75%
+    );
+    background-size: 10px 10px;
+    border-radius: 5px;
+}
+
+.sidebar:hover::-webkit-scrollbar-thumb:hover {
+    background: #444; 
+}
+
+.sidebar:hover {
+    scrollbar-color: #555 rgb(14, 17, 19); /* Visible scrollbar on hover */
+}
+
+.sidebar {
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+
+/* hover effect for all  */
+.home:hover, .popular:hover , .Technologies:hover, .blog:hover , .qna:hover, .topics:hover , .movies:hover, .press:hover, .carrer:hover ,.ad:hover, .useragrement:hover, .privacypolicy:hover, .containtpolicy:hover{
+    background-color: rgba(116, 135, 145, 0.1);
+    transition: 0.3s ease;
+    border-radius: 3px;
+    transform: scale(1.01);
+    transition: transform 0.2s ease;
+}
+
+/* side bar containt */
+
+/* first section like home and popular */
+.first{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) ;
+}
+
+.home{
+    margin-top: none;
+}
+
+.home , .popular{
+    height: 40px;
+    width: 230px;
+    display: flex;
+    align-content: center;
+    position: relative;
+    color: rgb(219, 228, 233);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    cursor: pointer; 
+    margin-bottom: 0.2rem;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 9px;
+    padding-bottom: 4px;
+}
+
+.home pre , .popular pre {
+    display: inline;    
+    margin: 0;     
+    color: rgb(219, 228, 233);
+    font-size: 14.3px;
+    line-height: 20px;
+}
+
+.popular pre{
+    margin-bottom: 0.5rem;
+    font-size: 14.3px;
+    line-height: 20px;
+}
+
+.home svg, .popular svg {
+    height: 20px;            
+    width: 20px;  
+    margin-left: 0.5rem;      
+    
+}
+
+/* Second Section Topics */
+.topic{ 
+    color: rgb(116, 135, 145);
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) ;
+}
+
+.topic pre{
+    margin-top: 1rem;
+    margin-bottom: 5px;
+    font-weight: 400;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+}
+
+.Technologies{
+    margin-top: 10px;
+}
+
+.Technologies, .blog , .qna, .topics , .movies, .press, .carrer {
+    height: 40px;
+    width: 230px;
+    display: flex;
+    align-content: center;
+    position: relative;
+    color: rgb(219, 228, 233);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    cursor: pointer; 
+    margin-bottom: 0.2rem;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 9px;
+    padding-bottom: 4px;   
+}
+
+.Technologies svg, .blog svg , .qna svg , .topics svg, .movies svg, .press svg, .carrer svg{
+    height: 20px;             
+    width: 20px;    
+    margin-left: 0.5rem;              
+}
+
+.Technologies pre, .blog pre , .qna pre, .topics pre, .movies pre, .press pre, .carrer pre{
+    display: inline;          
+    margin: 0;                
+    padding-left: 0; 
+    letter-spacing: 0px;         
+    color: rgb(219, 228, 233);
+    font-size: 14.3px;
+    line-height: 20px;
+}
+
+/* Guildlines  section of side bar */
+.guildline{ 
+    color: rgb(116, 135, 145);
+    line-height: 21px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.guildline pre{
+    margin-top: 1rem;
+    margin-bottom: 5px;
+    font-weight: 400;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+}
+
+.ad, .useragrement, .privacypolicy, .containtpolicy{
+    height: 40px;
+    width: 230px;
+    display: flex;
+    align-content: center;
+    position: relative;
+    color: rgb(219, 228, 233);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    cursor: pointer; 
+    margin-bottom: 0.2rem;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 9px;
+    padding-bottom: 4px;
+}
+
+.ad svg, .useragrement svg, .privacypolicy svg, .containtpolicy svg {
+    height: 20px;            
+    width: 20px;  
+    margin-left: 0.5rem;          
+    
+}
+
+.ad pre, .useragrement pre, .privacypolicy pre, .containtpolicy pre {
+    display: inline;         
+    margin: 0;                
+    padding-left: 0; 
+    letter-spacing: 0px;         
+    color: rgb(219, 228, 233);
+    font-size: 14.3px;
+    line-height: 20px;
+}
+
+.rights{
+    font-size: 10px;
+    line-height: 16px;
+    color: rgb(172, 172, 172);
+    cursor: pointer;
+    letter-spacing: none;
+    
+}
+
+
+/* Treandin topics section */
+
+.hottopics-title {
+    height: 30px; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    padding: 0 10px; 
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    margin-left: 5px;
+    background-color: rgb(14, 17, 19); 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.hottopics-scroll {
+    flex-grow: 1;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    padding: 10px;
+}
+
+.hottopics-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.card:hover{
+    transition: transform 0.2s ease;
+    transform: scale(1.02);
+}
+
+.card {
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 300px;
+    height: 200px;
+    margin-left: 15px;
+    margin-right: 10px; 
+    border-radius: 20px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.text1, .text2 {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    padding: 5px 10px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    z-index: 2;
+    text-overflow: ellipsis;
+}
+
+.text1 {
+    bottom: 25px; /* Adjust spacing above .text2 */
+}
+
+.text2 {
+    bottom: 0.1px; /* Position text at the bottom */
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+
+/* main containt like user posts */
+.main-containt{
+    background-color: rgb(14, 17, 19);
+    border-right:1px solid rgba(255, 255, 255, 0.2) ;
+}
+
+.post {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+    border-radius: 20px;
+    width: 730px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    position: relative; 
+}
+
+.user {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    font-size: 14px; 
+    color: white;
+}
+
+.user pre {
+    margin: 0;
+    font-size: 14px;
+    color: white;
+}
+
+.user .time {
+    font-size: 12px; 
+    color: gray; 
+    white-space: nowrap; 
+}
+
+.post:hover{
+    background-color: rgba(116, 135, 145, 0.1);
+    transition: 0.3s ease;
+    border-radius: 20px;
+}
+
+.post-separator {
+    border: none; 
+    border-top: 0.5px solid rgba(255, 255, 255, 0.2) ;
+    margin: 5px auto 0;
+    width: 96%; 
+    height: 0; 
+}
+
+.contentimg {
+    margin-bottom: none;
+}
+
+.contentwriteup{
+    margin-left: 5px;
+    margin-top: 10px;
+    font-size: 1rem;
+    white-space: normal;  
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-height: 200px; 
+    border-radius: 10px; 
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    color: white;
+}
+
+.user{
+    margin-left: 5px;
+    font-size: 13px;
+}
+
+.contentimg img{
+    height: 350px;
+    width: 700px;
+    margin-top: 10px;
+    margin-left: 15px;
+    border-radius: 20px;
+    object-fit: initial;
+    height: auto;
+}
+
+.actions { 
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px; 
+    align-items: center; 
+}
+
+.likes, .comment, .share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgb(42, 50, 54);
+    box-sizing: border-box;
+    color: white; 
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+    border-bottom-left-radius: 999px;
+    border-bottom-right-radius: 999px; 
+    box-sizing: border-box;
+    height: 32px;
+    font-size: 12px;
+    font-stretch: 100%;
+    line-height: 16px; 
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.likes svg, .comment svg, .share svg {
+    display: flex;
+    justify-content: center;
+    height: 18px; 
+    width: 18px;
+    fill: rgb(255, 255, 255);
+}
+
+.likes:hover , .comment:hover , .share:hover {
+    background-color: rgba(116, 135, 145, 0.3); 
+    transform: scale(1.015); 
+    cursor: pointer;
+}
+
+/* popular communities section */
+
+.popularcommunities {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    width: 250px;
+    margin-top: 65px;
+    margin-left: 25px;
+    border-radius: 20px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(219, 228, 233);
+    padding: 15px;
+    border-bottom:1px solid rgba(255, 255, 255, 0.2) ;
+}
+
+.popularcommunities pre {
+    font-weight: 600;
+    line-height: 16px;
+    color: rgb(139, 162, 173);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.community-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.community-item {
+    display: flex;
+    align-items: center;
+    width: 220px;
+    gap: 5px;
+    padding: 5px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.community-item img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.community-item span {
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(183, 202, 212)
+}
+
+.community-item:hover {
+    background-color: rgba(116, 135, 145, 0.2); 
+    transform: scale(1.01); 
+    cursor: pointer;
+}
